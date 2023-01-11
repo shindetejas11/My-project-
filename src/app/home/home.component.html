@@ -1,0 +1,102 @@
+<section class="py-5 shadow homeSection text-center">
+  <div class="container home-container">
+    <div class="row">
+      <div class="d-flex justify-content-center align-items-center">
+        <a class="product-category" (click)="filterProducts('all')">
+          <img src="https://rukminim1.flixcart.com/flap/128/128/image/f15c02bfeb02d15d.png?q=100" height="75" width="75"
+            alt="Top Offers" class="img-fluid" />
+          <h6>Top Offers</h6>
+        </a>
+        <a class="product-category" (click)="filterProducts('grocery')">
+          <img src="https://rukminim1.flixcart.com/flap/128/128/image/29327f40e9c4d26b.png?q=100" height="75" width="75"
+            alt="Grocery" class="img-fluid" />
+          <h6>Grocery</h6>
+        </a>
+        <a class="product-category" (click)="filterProducts('top-offers')">
+          <img src="https://rukminim1.flixcart.com/flap/128/128/image/22fddf3c7da4c4f4.png?q=100" height="75" width="75"
+            alt="" class="img-fluid" />
+          <h6>Mobiles</h6>
+        </a>
+        <a class="product-category" (click)="filterProducts('clothing')">
+          <img src="https://rukminim1.flixcart.com/flap/128/128/image/c12afc017e6f24cb.png?q=100" height="75" width="75"
+            alt="" class="img-fluid" />
+          <h6>Fashions</h6>
+        </a>
+        <a class="product-category" (click)="filterProducts('electronics')">
+          <img src="https://rukminim1.flixcart.com/flap/128/128/image/69c6589653afdb9a.png?q=100" height="75" width="75"
+            alt="Electronics" class="img-fluid" />
+          <h6>Electronics</h6>
+        </a>
+        <a class="product-category">
+          <img src="https://rukminim1.flixcart.com/flap/128/128/image/ab7e2b022a4587dd.jpg?q=100" height="75" width="75"
+            alt="" class="img-fluid" />
+          <h6>Home</h6>
+        </a>
+        <a class="product-category">
+          <img src="https://rukminim1.flixcart.com/flap/128/128/image/0ff199d1bd27eb98.png?q=100" height="75" width="75"
+            alt="" class="img-fluid" />
+          <h6>Appliances</h6>
+        </a>
+        <a class="product-category">
+          <img src="https://rukminim1.flixcart.com/flap/128/128/image/71050627a56b4693.png?q=100" height="75" width="75"
+            alt="Electronics" class="img-fluid" />
+          <h6>Travel</h6>
+        </a>
+        <a class="product-category">
+          <img src="https://rukminim1.flixcart.com/fk-p-flap/128/128/image/05d708653beff580.png?q=100" height="75"
+            width="75" alt="" class="img-fluid" />
+          <h6>Two wheelers</h6>
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
+    <div class="carousel-inner">
+      <div class="carousel-item active">
+        <img src="https://rukminim1.flixcart.com/fk-p-flap/844/140/image/3f256eb02be16383.jpg?q=50"
+          class="d-block w-100" alt="..." />
+      </div>
+      <div class="carousel-item">
+        <img src="https://rukminim1.flixcart.com/fk-p-flap/844/140/image/6559020cbe866185.jpg?q=50"
+          class="d-block w-100" alt="..." />
+      </div>
+    </div>
+    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="prev">
+      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Previous</span>
+    </button>
+    <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="next">
+      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Next</span>
+    </button>
+  </div>
+</section>
+
+<!-- ........card  -->
+<section id="product-section">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-4" *ngFor="let item of filterProductsList">
+        <div class="card m-2" style="width: 18rem">
+          <div class="card-header product-image">
+            <img [src]="item.image" class="card-img-top" alt="..." height="200" width="200" />
+          </div>
+          <div class="card-body product-body">
+            <h6 class="card-title productTitle" style="white-space: no-wrap">
+              {{ item.title }}
+            </h6>
+            <p class="card-text">
+              ₹{{ item.price }}
+              <span class="offer-price ms-2">{{ item.price }}</span>
+              <span class="ms-2">2% off</span>
+            </p>
+            <a class="btn btn-primary" (click)="additemstocart(item)">Add To cart</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

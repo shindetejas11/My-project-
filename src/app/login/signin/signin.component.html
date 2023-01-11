@@ -1,0 +1,61 @@
+<div class="row">
+    <div class="sign-in d-flex">
+      <div class="sign-inlogo">
+        <p class="sign-inname">Login</p>
+        <p class="sign-titleinfo">
+          <span>Get access to your Orders, Wishlist and Recommendations</span>
+        </p>
+      </div>
+      <div class="sign-inform">
+        <form [formGroup]="signinform" (ngSubmit)="signin()">
+          <div class="form-group">
+            <label for="exampleInputEmail1">Mobile Number</label>
+            <span style="color: red"> *</span>
+            <input
+              type="text"
+              class="form-control"
+              id="exampleInputEmail1"
+              aria-describedby="emailHelp"
+              placeholder="Enter email"
+              formControlName="mobilenumber"
+            />
+            <div
+              *ngIf="
+                signinform.controls['mobilenumber'].touched &&
+                signinform.controls['mobilenumber'].dirty &&
+                  signinform.controls['mobilenumber'].invalid
+              "
+            >
+              <span style="color: red"> Required Field</span>
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="exampleInputPassword1">Password</label>
+            <input
+              type="password"
+              class="form-control"
+              id="exampleInputPassword1"
+              placeholder="Password"
+              formControlName="password"
+            />
+          </div>
+  
+          <div class="d-grid gap-2">
+            <button
+              type="submit"
+              class="btn btn-primary sign-button"
+              [disabled]="!signinform.valid"
+            >
+              Submit
+            </button>
+          </div>
+          <div class="d-grid gap-2">
+            <a class="Signin-account" (click)="redirectto('signup')"
+              >New to Flipkart? Create an account</a
+            >
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+  

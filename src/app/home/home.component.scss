@@ -1,0 +1,36 @@
+.homeSection{
+    height: 145px;
+    padding: 10px;
+}
+
+.home-container{
+    position: relative;
+    top: -32px;
+}
+
+.product-category{
+    margin-left: 50px;
+    text-decoration: none;
+    color: black;
+    font-weight: 700;
+    cursor: pointer;
+}
+
+.product-image{
+    height: 250px;
+}
+
+.product-body{
+    height: 150px;
+    .product-title{
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+      } 
+}
+
+
+
+.offer-price{
+  text-decoration: line-through;
+}

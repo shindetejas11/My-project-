@@ -1,0 +1,18 @@
+//1) Modifify HTTP Headers  2) MOdifiy request body  3) set Autentication and autrhorization
+// 4 ) MOck the backend  5 ) modify respo.--> e.g XML FORMAT -- JSON FORMAT  6 ) Error handling
+
+
+// import { Injectable } from "@angular/core";
+// import {HttpEvent, HttpHandler, HttpInterceptor, HttpRequest} from '@angular/common/http'
+// import { Observable } from "rxjs";
+
+
+// @Injectable()
+
+// export class demointer implements HttpInterceptor{
+//     constructor(){}
+//     intercept(req: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
+//         throw new Error("Method not implemented.");
+//     }
+
+// }

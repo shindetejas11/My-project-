@@ -1,0 +1,253 @@
+<!-- <div class="container">
+  <div class="row mt-5">
+    <div class="col-md-3 me-1 ml-7 ml-10 shadow align">
+      <p class="text-muted fs-5">
+        <i class="bi bi-person-fill fs-5 me-2"></i>My Profile
+      </p>
+      <nav class="nav flex-column">
+        <a class="nav-link list" (click)="opentab('profile')" [ngClass]="type=='profile' ? 'active' :'nonactive'">Account Information</a>
+        <a class="nav-link list" (click)="opentab('Address')" [ngClass]="type=='address' ? 'active':'nonactive'">Account Details</a>
+      </nav>
+    </div>
+    <div class="col-md-6 ms-4 shadow align">
+      <p class="text-muted fs-5 me-2">
+        <i class="bi bi-house fs-5 me-2"></i>Address Details
+      </p>
+
+
+        <div *ngIf = "type =='profile'">
+
+
+          <form class="m-3 w-75" [formGroup]="signgroup" (ngSubmit)="submitform()">
+
+            <div class="row">
+              <div class="col-md-6 mb-4">
+                <label for="validationCustom01">First name</label>
+                <input type="text" class="form-control" id="validationCustom01" placeholder="First name" formControlName="firstname">
+              
+              </div>
+              <div class="col-md-6 mb-3">
+                <label for="validationCustom02">Last name</label>
+                <input type="text" class="form-control" id="validationCustom02" placeholder="Last name" formControlName="lastname">
+               
+              </div>
+
+              <div class="mb-3">
+                <label  class="form-label">User Name</label>
+                <input type="text" class="form-control" aria-describedby="emailHelp" formControlName="username">
+                
+            </div>
+            <div class="form-group">
+              <label >Mobile Number </label>
+              <input type="email" class="form-control"  aria-describedby="emailHelp" placeholder="Mobile Number" formControlName="Mobilenumber">
+              <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+            </div>
+            <div class="form-group">
+              <label >Password</label>
+              <input type="password" class="form-control"  placeholder="Password" formControlName="password">
+            </div>
+          
+            <button type="submit" class="btn btn-primary button-submit">Submit</button>
+            </div>
+          </form>
+        </div>
+      <div>
+ 
+<div *ngIf = "type =='Address'" >
+  <form class="m-3 w-75" [formGroup]="signgroup" (ngSubmit)="submitform()">
+    <div formGroupName="address">
+
+
+ 
+    <div class="form-row" >
+      <div class="form-group">
+        <label for="inputAddress">Address</label>
+        <input type="text" class="form-control" id="inputAddress" placeholder="1234 Main St" formControlName="address1">
+      </div>
+      <div class="form-group">
+        <label for="inputAddress2">Address 2</label>
+        <input type="text" class="form-control" id="inputAddress2" placeholder="Apartment, studio, or floor" formControlName="address2">
+      </div>
+      <div class="col-md-4 mb-3">
+     
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-6 mb-3">
+        <label for="validationServer03">City</label>
+        <input type="text" class="form-control is-invalid" id="validationServer03" placeholder="City"  formControlName="city">
+       
+      </div>
+      <div class="col-md-3 mb-3">
+        <label for="validationServer04">State</label>
+        <input type="text" class="form-control is-invalid" id="validationServer04" placeholder="State" formControlName="state">
+      
+      </div>
+      <div class="col-md-3 mb-3">
+        <label for="validationServer05">Zip</label>
+        <input type="text" class="form-control is-invalid" id="validationServer05" placeholder="Zip"  formControlName="pincode">
+     
+      </div>
+    </div>
+  
+  <button type="submit" class="btn btn-primary button-Addresssubmit">Submit</button>
+          
+    </div>
+  </form>
+
+
+</div>
+
+
+      </div>
+    </div>
+  </div>
+</div> -->
+
+
+
+
+
+<!-- ................sir code.............................................. -->
+
+
+<div class="container mt-3">
+  <div class="row">
+      <div class="col-md-3 me-2 shadow  align  " >
+        <p class="text-muted fs-5">
+          <i class="bi bi-person-fill fs-5 me-2"></i>My Profile
+        </p>
+          <ul class="nav flex-column test">
+              <li class="nav-item ms-2 list-items align ">
+                  <a aria-current="page"><span class="ms-4" (click)="getSection('Profile')" [ngClass]="actionType == 'Profile' ? 'active' : 'nonActive'">Profile Information</span></a>
+              </li>
+              <li class="nav-item ms-2 list-items">
+                  <a><span class="ms-4" (click)="getSection('Address')" [ngClass]="actionType == 'Address' ? 'active' : 'nonActive'">Address Details</span></a>
+              </li>
+              <div>
+                <button class="btn btn-muted buttonhome " [routerLink]="['/']" > Home Page </button>
+              </div>
+          </ul>
+      </div>
+      <div class="col-md-8 ms-3 shadow">
+          <!-- <h1>My Profile</h1> -->
+          <div *ngIf="actionType == 'Profile'">
+              <form class="m-3 w-65" [formGroup]="myProfileForm" (ngSubmit)="submitProfile()">
+                  <div class="row">
+                      <div class="col-md-4">
+                          <label for="validationCustom01" class="form-label">First name</label>
+                          <input type="text" class="form-control" id="validationCustom01" value="Mark" required formControlName="firstName">
+                          <!-- <div class="valid-feedback">
+                            Looks good!
+                          </div> -->
+                        </div>
+                        <div class="col-md-4">
+                          <label for="validationCustom02" class="form-label">Last name</label>
+                          <input type="text" class="form-control" id="validationCustom02" value="Otto" required formControlName="lastName">
+                          <!-- <div class="valid-feedback">
+                            Looks good!
+                          </div> -->
+                        </div>
+                  </div>
+                  <div class="mb-2">
+                      <label for="exampleInputEmail1" class="form-label">UserName</label>
+                      <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" formControlName="username">
+                      <!-- <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div> -->
+                  </div>
+                  <div class="mb-2">
+                      <label for="exampleInputMobile1" class="form-label">Mobile Number</label>
+                      <input type="email" class="form-control" id="exampleInputMobile1" aria-describedby="emailHelp" formControlName="mobilenumber">
+                      <div id="emailHelp" class="form-text">We'll never share your MObile number with anyone else.</div>
+                  </div>
+                  <div class="mb-2">
+                      <label for="exampleInputPassword1" class="form-label">Password</label>
+                      <input type="password" class="form-control" id="exampleInputPassword1" formControlName="password">
+                  </div>
+                  
+
+                
+              </form>
+          </div>
+          <div *ngIf="actionType == 'Address'">
+              <form class="row m-3 g-3 needs-validation" [formGroup]="myProfileForm" (ngSubmit)="submitProfile()" novalidate>
+                  <div formGroupName="address">
+                  <div class="col-md-6">
+                    <label for="validationCustom01" class="form-label">Line 1</label>
+                    <input type="text" class="form-control" id="validationCustom01" value="Mark" required formControlName="line1">
+                    <div class="valid-feedback">
+                      Looks good!
+                    </div>
+                  </div>
+                  <div class="col-md-6">
+                    <label for="validationCustom02" class="form-label">Line 2</label>
+                    <input type="text" class="form-control" id="validationCustom02" value="Otto" required formControlName="line2">
+                    <div class="valid-feedback">
+                      Looks good!
+                    </div>
+                  </div>
+                  <!-- <div class="col-md-4">
+                    <label for="validationCustomUsername" class="form-label">Username</label>
+                    <div class="input-group has-validation">
+                      <span class="input-group-text" id="inputGroupPrepend">@</span>
+                      <input type="text" class="form-control" id="validationCustomUsername" aria-describedby="inputGroupPrepend" required>
+                      <div class="invalid-feedback">
+                        Please choose a username.
+                      </div>
+                    </div>
+                  </div> -->
+                  <div class="row">
+
+                  
+                  <div class="col-md-6">
+                    <label for="validationCustom03" class="form-label">City</label>
+                    <input type="text" class="form-control" id="validationCustom03" required formControlName="city">
+                    <div class="invalid-feedback">
+                      Please provide a valid city.
+                    </div>
+                  </div>
+                  <div class="col-md-3">
+                    <label for="validationCustom04" class="form-label">State</label>
+                    <select class="form-select" id="validationCustom04" required formControlName="state">
+                      <option selected disabled value="">Choose...</option>
+                      <option>...</option>
+                    </select>
+                    <div class="invalid-feedback">
+                      Please select a valid state.
+                    </div>
+                  </div>
+                  <div class="col-md-3">
+                    <label for="validationCustom05" class="form-label">Zip</label>
+                    <input type="text" class="form-control" id="validationCustom05" required formControlName="pincode">
+                    <div class="invalid-feedback">
+                      Please provide a valid zip.
+                    </div>
+                  </div>
+              </div>
+                  <div class="col-12 mt-2 mb-2">
+                    <div class="form-check">
+                      <input class="form-check-input" type="checkbox" value="" id="invalidCheck" required>
+                      <label class="form-check-label" for="invalidCheck">
+                        Agree to terms and conditions
+                      </label>
+                      <div class="invalid-feedback">
+                        You must agree before submitting.
+                      </div>
+                    </div>
+                  </div>
+                  <!-- <div class="col-12">
+                    <button class="btn btn-primary" type="submit">Submit form</button>
+                  </div> -->
+              </div>
+                </form>
+          </div>
+          
+          <div class="row">
+             <div class="col-12">
+              <button class="btn btn-primary me-2" (click)="submitProfile()" *ngIf="!udatebutton"> Submit</button>
+              <button class="btn btn-primary me-2" (click)="Updateprofile()" *ngIf="udatebutton"> Update</button>
+             </div>
+          </div>
+
+      </div>
+  </div>
+</div>

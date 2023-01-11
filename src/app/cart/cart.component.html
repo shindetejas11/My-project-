@@ -1,0 +1,64 @@
+<div class="container mt-4">
+  <div class="row">
+    <div class="col-md-7 shadow">
+      <div class="row">
+        <div class="col-md-12 shadow mb-2">
+          <h4>Delevired to :</h4>
+
+          <p>
+            State : {{ profile.address.line1 }} , City:
+            {{ profile.address.line2 }} ,City: {{ profile.address.city }} ,
+            Pincode:{{ profile.address.pincode }}
+          </p>
+        </div>
+        <div class="col-md-12 shadow mt-3">
+          <div class="row m-1" *ngFor="let item of productarry">
+            <div class="col-md-4 image">
+              <img [src]="item.image" style="height: 100px; width: 75px" />
+            </div>
+
+            <div class="col-md-4">
+              <div class="card-body product-body">
+                <h6
+                  class="card-title productTitle"
+                  style="white-space: no-wrap"
+                >
+                  {{ item.title }}
+                </h6>
+                <p class="card-text">
+                  ₹{{ item.price }}
+                  <span class="offer-price ms-2">{{ item.price }}</span>
+                  <span class="ms-2">2% off</span>
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-4 ms-2 shadow">
+      <div class="row">
+        <p class="text-muted fs-5">Price Details</p>
+        <hr class="border border-danger border-2 opacity-50" />
+        <p class="fs-5">
+          Total Prize : <span class="ms-3"> {{ orderobj.totalprize }}</span>
+        </p>
+        <p class="fs-5">
+          Disscount : <span class="ms-3"> {{ orderobj.offer }}</span>
+        </p>
+        <p class="fs-5">
+          Final Prize : <span class="ms-3"> {{ orderobj.finalprize }}</span>
+        </p>
+      </div>
+    </div>
+    <div class="col-md-7 shadow">
+      <button
+        type="button"
+        class="btn btn-primary btn-sm"
+        (click)="placeorder()"
+      >
+        Place the order
+      </button>
+    </div>
+  </div>
+</div>

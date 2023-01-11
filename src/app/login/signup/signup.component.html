@@ -1,0 +1,62 @@
+<div class="row">
+    <div class="signupform d-flex">
+         <div class="signintitle">
+        <p class="signuptitle">Sign-up</p>
+      </div>
+      <div class="signupform">
+          <form [formGroup]="Signupform" (ngSubmit)="onclick()">
+              <div class="form-group">
+                <label for="exampleInputEmail1">Username</label>
+                <input type="text" class="form-control"  aria-describedby="emailHelp" formControlName="username">
+                <div *ngIf="Signupform.controls['username'].invalid ">
+                 <span style="color:red"> Username is required </span>
+                </div>
+                
+              </div>
+              <div class="form-group">
+                <label >Mobile Number</label>
+                <input type="text" class="form-control" formControlName="mobilenumber">
+                <div *ngIf="Signupform.controls['mobilenumber'].invalid && (Signupform.controls ['mobilenumber'].touched 
+                       || Signupform.controls ['mobilenumber'].dirty)">
+                <div *ngIf="Signupform.controls ['mobilenumber'].errors?.['required']" >
+                     please enter the mobile Number     
+               </div>
+                 <div *ngIf="Signupform.controls ['mobilenumber'].errors?.['maxlength'] ||Signupform.controls ['mobilenumber'].errors?.['minlength'] ">
+                  <span style="color:red">  Please enter the  10  digit mobile number </span>  
+                 </div>
+                </div>
+              </div>
+
+              <div class="form-group">
+                <label for="exampleInputPassword1">Password</label>
+                <input type="password" class="form-control"   formControlName="password">
+             
+                <div  *ngIf="Signupform.errors?.['passwordmismatch']" class="invalid-feedback d-block">
+                  Password and confirmPassword is not same.
+                </div>
+              </div>
+            
+              <div class="form-group">
+                <label for="exampleInputPassword1">Password</label> 
+                <input type="password" class="form-control"   formControlName="confirmPassword">
+                <div  *ngIf="(Signupform.errors?.['passwordmismatch'])" class="invalid-feedback d-block">
+                  Password and confirmPassword is not same.
+                </div>
+                <!-- <div *ngIf="(Signupform.controls['confirmPassword'].touched)"></div> -->
+              </div>
+              <div class="form-check">
+                <!-- <input type="checkbox" class="form-check-input" id="exampleCheck1"> -->
+                <!-- <label class="form-check-label" for="exampleCheck1">Check me out</label> -->
+              </div> 
+              <div  class="d-grid gap-2" >
+                  <button type="submit" class="btn btn-primary sign-up "[disabled]="!Signupform.valid">Submit</button>
+               </div>
+               <div class="d-grid gap-1 ">
+  
+                <a class="Signin-account" (click)="redirectosignup()">Existing User?Log-in</a>
+             </div>
+            </form>
+      </div>
+    </div>
+  </div>
+  

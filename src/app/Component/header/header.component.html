@@ -1,0 +1,90 @@
+<header>
+    <nav class="navbar navbar-expand-lg bg-primary">
+        <div class="container-fluid">
+            <a class="navbar-brand" routerLink="./">Eshop</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+                aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <form class="d-flex search" role="search">
+                <input class="form-control me-2 search-input" placeholder="Search for products,brands and more"
+                    (keyup)="searchproduct($event)" (blur)="hidesearch()" #getvalue [(ngModel)]="valuetoread">
+                <ul class="search-product" *ngIf="searchresult">
+                    <li *ngFor="let item of searchresult | filterpipe:valuetoread ">
+                        <a> {{item.title}}</a>
+                    </li>
+                </ul>
+
+            </form>
+            <button class="text-primary search-button" (click)="submiteddetails(getvalue.value)">Search</button>
+            
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0 ms-3">
+                    <li class="nav-item ms-3" *ngIf="!userlogin">
+                        <a class="nav-link active loginBtn" aria-current="page" data-bs-toggle="modal"
+                            data-bs-target="#loginModal">Login</a>
+                    </li>
+                    <li class="nav-item dropdown ms-3" *ngIf="userlogin">
+                        <a class="nav-link dropdown-toggle text-white" role="button" data-bs-toggle="dropdown"
+                            aria-expanded="false">
+                            {{userdetails.username}}
+                        </a>
+                        <ul class="dropdown-menu">
+                            <a class="dropdown-item" [routerLink]="['myprofile']">My Profile</a>
+                            <li><a class="dropdown-item" href="#">Another action</a></li>
+                            <li>
+                                <hr class="dropdown-divider">
+                            </li>
+                            <li><a class="dropdown-item" (click)="logout()">Logout</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item ms-3">
+                        <a class="nav-link text-white" href="#">Become a Seller</a>
+                    </li>
+                    <li class="nav-item dropdown ms-3">
+                        <a class="nav-link dropdown-toggle text-white" href="#" role="button" data-bs-toggle="dropdown"
+                            aria-expanded="false">
+                            More
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="#">Action</a></li>
+                            <li><a class="dropdown-item" href="#">Another action</a></li>
+                            <li>
+                                <hr class="dropdown-divider">
+                            </li>
+                            <li><a class="dropdown-item" href="#">Something else here</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item ms-3 d-flex align-items-center">
+                        <span style="color:white ;">{{(productCount | async)?.length }}</span>
+                        <span class="cart-icon"><i class="bi bi-cart3"></i></span>
+                        <a class="nav-link text-white" [routerLink]="['/cart']">Cart</a>
+                        <!-- <span style="color:white ;">{{(productcount | async)?.length }}</span> -->
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+</header>
+
+<!-- Modal -->
+
+<div class="modal fade" id="loginModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <!-- <h5 class="modal-title" id="exampleModalLabel">Modal title</h5> -->
+                <button type="button" #btnclose class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <app-signin *ngIf="action == 'signin'" (action)="emit($event)"></app-signin>
+                <app-signup *ngIf="action == 'signup'" (action)="emit($event)" (display)="action1($event)"></app-signup>
+            </div>
+            <!-- <div class="modal-footer">
+      <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+      <button type="button" class="btn btn-primary">Save changes</button>
+    </div> -->
+        </div>
+    </div>
+</div>
